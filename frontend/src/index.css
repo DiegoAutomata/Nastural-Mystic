@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+
+  --color-brand-dark: #0f172a;
+  --color-brand-primary: #3b82f6;
+  /* Blue from logo */
+  --color-brand-accent: #f472b6;
+  /* Pink from logo */
+  --color-brand-secondary: #94a3b8;
+
+  --color-pastel-blue: #eff6ff;
+  --color-pastel-pink: #fdf2f8;
+  --color-pastel-bg: #ffffff;
+
+  --animate-spin-slow: spin 8s linear infinite;
+}
+
+@layer base {
+  body {
+    @apply bg-pastel-bg text-slate-900 font-sans antialiased;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

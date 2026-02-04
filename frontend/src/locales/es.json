@@ -1,0 +1,68 @@
+{
+  "navbar": {
+    "men": "Hombres",
+    "home": "Inicio",
+    "women": "Mujeres",
+    "accessories": "Accesorios",
+    "collections": "Colecciones",
+    "contact": "Contacto",
+    "training": "Entrenamiento",
+    "sportswear": "Ropa Deportiva"
+  },
+  "hero": {
+    "collection": "Colección Aura 2026",
+    "discover": "DESCUBRE TU",
+    "potential": "POTENCIAL",
+    "description": "Aura Fit combina elegancia y rendimiento. Ropa activa diseñada con precisión para resaltar tu mejor versión en cada movimiento.",
+    "buyNow": "Comprar Ahora",
+    "watchFilm": "Ver Film",
+    "newStyles": "Nuevos Estilos",
+    "basics": "Básicos Aura"
+  },
+  "marquee": {
+    "performance": "RENDIMIENTO",
+    "aurafit": "AURA FIT"
+  },
+  "products": {
+    "newSeason": "Nueva Temporada 2026",
+    "essentials": "ESENCIALES",
+    "seeAll": "Ver todo",
+    "backToCollections": "Volver a Colecciones",
+    "add": "Agregar",
+    "yoga": "Yoga",
+    "training": "Entrenamiento",
+    "lifestyle": "Estilo de Vida",
+    "running": "Running",
+    "accessories": "Accesorios",
+    "footwear": "Calzado"
+  },
+  "footer": {
+    "description": "Diseñamos ropa que potencia tu movimiento y eleva tu estilo. Calidad premium para atletas exigentes.",
+    "explore": "Explorar",
+    "help": "Ayuda",
+    "newArrivals": "Nuevos Ingresos",
+    "shipping": "Envíos",
+    "returns": "Devoluciones",
+    "sizing": "Tallas",
+    "contact": "Contacto",
+    "rights": "© 2026 Aura Fit. Todos los derechos reservados."
+  },
+  "auth": {
+    "welcomeBack": "Bienvenido de nuevo",
+    "accessAccount": "Accede a tu cuenta para continuar",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "signIn": "Iniciar Sesión",
+    "or": "O continúa con",
+    "noAccount": "¿No tienes cuenta?",
+    "register": "Regístrate",
+    "createAccount": "Crea tu cuenta",
+    "joinCommunity": "Únete a la comunidad Aura Fit",
+    "hasAccount": "¿Ya tienes cuenta?",
+    "signUp": "Registrarse",
+    "name": "Nombre",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "logout": "Cerrar Sesión",
+    "profile": "Perfil"
+  }
+}

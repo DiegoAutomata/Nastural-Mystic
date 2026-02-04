@@ -1,0 +1,68 @@
+{
+  "navbar": {
+    "men": "Men",
+    "home": "Home",
+    "women": "Women",
+    "accessories": "Accessories",
+    "collections": "Collections",
+    "contact": "Contact",
+    "training": "Training",
+    "sportswear": "Sportswear"
+  },
+  "hero": {
+    "collection": "Aura Collection 2026",
+    "discover": "DISCOVER YOUR",
+    "potential": "POTENTIAL",
+    "description": "Aura Fit combines elegance and performance. Activewear designed with precision to highlight your best version in every movement.",
+    "buyNow": "Shop Now",
+    "watchFilm": "Watch Film",
+    "newStyles": "New Styles",
+    "basics": "Aura Basics"
+  },
+  "marquee": {
+    "performance": "PERFORMANCE",
+    "aurafit": "AURA FIT"
+  },
+  "products": {
+    "newSeason": "New Season 2026",
+    "essentials": "ESSENTIALS",
+    "seeAll": "See all",
+    "backToCollections": "Back to Collections",
+    "add": "Add",
+    "yoga": "Yoga",
+    "training": "Training",
+    "lifestyle": "Lifestyle",
+    "running": "Running",
+    "accessories": "Accessories",
+    "footwear": "Footwear"
+  },
+  "footer": {
+    "description": "We design clothes that empower your movement and elevate your style. Premium quality for demanding athletes.",
+    "explore": "Explore",
+    "help": "Help",
+    "newArrivals": "New Arrivals",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "sizing": "Sizing",
+    "contact": "Contact",
+    "rights": "© 2026 Aura Fit. All rights reserved."
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "accessAccount": "Sign in to continue",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "or": "Or continue with",
+    "noAccount": "Don't have an account?",
+    "register": "Register",
+    "createAccount": "Create your account",
+    "joinCommunity": "Join the Aura Fit community",
+    "hasAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "name": "Name",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "logout": "Logout",
+    "profile": "Profile"
+  }
+}
