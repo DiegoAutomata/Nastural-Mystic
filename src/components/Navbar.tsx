@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, X, Sparkles } from 'lucide-react';
+import { ShoppingCart, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import { useAdmin } from '../context/AdminContext';
@@ -29,25 +29,11 @@ const Navbar = ({ onOpenCart }: { onOpenCart: () => void }) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 group">
-                        <div className="relative transform transition-transform group-hover:scale-105">
-                            <img
-                                src="/images/logo.png"
-                                onError={(e) => {
-                                    e.currentTarget.style.display = 'none';
-                                    e.currentTarget.nextElementSibling?.classList.remove('hidden'); // Show icon fallback if image fails
-                                }}
-                                alt="Natural Mystic Logo"
-                                className="w-12 h-12 object-contain"
-                            />
-                            {/* Fallback Icon (Hidden by default, shown on error) */}
-                            <div className="hidden absolute inset-0 flex items-center justify-center bg-desert-primary/10 rounded-full">
-                                <Sparkles className="text-desert-accent" size={18} />
-                            </div>
-
-                            <div className="absolute -top-1 -right-1 bg-desert-accent rounded-full p-0.5 shadow-lg">
-                                <Sparkles className="text-desert-primary" size={10} />
-                            </div>
-                        </div>
+                        <img
+                            src="/images/logo.png"
+                            alt="Natural Mystic"
+                            className="w-12 h-12 object-contain"
+                        />
                         <div className="flex flex-col">
                             <span className={`font-cinzel text-lg font-bold tracking-widest uppercase transition-colors leading-none ${isScrolled ? 'text-black' : 'text-parchment group-hover:text-white'}`}>
                                 Natural

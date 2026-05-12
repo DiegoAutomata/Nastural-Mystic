@@ -62,6 +62,11 @@ const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void 
                                             src={item.image}
                                             alt={item.name}
                                             className="w-20 h-20 object-cover rounded-sm"
+                                            onError={(e) => {
+                                                const target = e.currentTarget;
+                                                target.onerror = null;
+                                                target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%23f3ebe1" width="200" height="200"/><text x="100" y="100" text-anchor="middle" dominant-baseline="middle" font-size="40" fill="%23989979">🌿</text></svg>';
+                                            }}
                                         />
                                         <div className="flex-1">
                                             <h3 className="font-cinzel text-desert-primary font-bold">{item.name}</h3>

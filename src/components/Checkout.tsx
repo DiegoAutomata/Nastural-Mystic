@@ -401,7 +401,7 @@ const Checkout = () => {
                             <div className="space-y-4 mb-6">
                                 {items.map(item => (
                                     <div key={item._id || item.id} className="flex gap-3 group relative">
-                                        <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-sm" />
+                                        <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-sm" onError={(e) => { const t = e.currentTarget; t.onerror = null; t.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%23f3ebe1" width="200" height="200"/><text x="100" y="100" text-anchor="middle" dominant-baseline="middle" font-size="40" fill="%23989979">🌿</text></svg>'; }} />
                                         <div className="flex-1">
                                             <h4 className="font-cinzel text-sm text-desert-primary pr-6">{item.name}</h4>
                                             <p className="text-xs text-desert-text">Cantidad: {item.quantity}</p>

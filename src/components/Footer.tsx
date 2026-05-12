@@ -1,4 +1,4 @@
-import { Sparkles, Instagram, Twitter, Facebook, Mail, Phone } from 'lucide-react';
+import { Instagram, Twitter, Facebook, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -9,11 +9,11 @@ const Footer = () => {
                         <div className="flex items-center gap-3 mb-6">
                             <img
                                 src="/images/logo.png"
-                                alt="Natural Mystic Logo"
-                                className="w-12 h-12 rounded-full border border-desert-accent/50 object-cover"
+                                alt="Natural Mystic"
+                                className="w-12 h-12 object-contain"
                             />
-                            <span className="font-cinzel text-lg font-bold tracking-widest uppercase text-white flex items-center gap-2">
-                                Natural Mystic <Sparkles className="text-white" size={16} />
+                            <span className="font-cinzel text-lg font-bold tracking-widest uppercase text-white">
+                                Natural Mystic
                             </span>
                         </div>
                         <p className="text-white/80 font-montserrat text-sm leading-relaxed font-normal">

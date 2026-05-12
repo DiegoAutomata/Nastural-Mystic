@@ -260,7 +260,7 @@ const AdminDashboard = () => {
                                                 className="border-b border-desert-accent/5 hover:bg-desert-bg/5 transition-colors group"
                                             >
                                                 <td className="p-4">
-                                                    <img src={p.image} className="w-12 h-12 object-cover rounded-sm border border-desert-accent/20" alt="" />
+                                                    <img src={p.image} className="w-12 h-12 object-cover rounded-sm border border-desert-accent/20" alt="" onError={(e) => { const t = e.currentTarget; t.onerror = null; t.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect fill="%23f3ebe1" width="48" height="48"/><text x="24" y="24" text-anchor="middle" dominant-baseline="middle" font-size="16" fill="%23989979">🌿</text></svg>'; }} />
                                                 </td>
                                                 <td className="p-4">
                                                     <div className="font-cinzel font-bold text-sm text-desert-primary">{p.name}</div>

@@ -8,28 +8,28 @@ const categories = [
     {
         id: 'velas',
         name: 'Velas de Soja',
-        image: 'https://images.unsplash.com/photo-1602166668383-3c990a42484a?q=80&w=800&auto=format&fit=crop', // Dark Candle Close-up (Reliable)
+        image: '/images/categories/velas.jpg',
         filter: 'velas',
         description: 'Luz natural y aromas sagrados'
     },
     {
         id: 'sahumerios',
         name: 'Sahumerios',
-        image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop', // Incense stick & smoke (Reliable)
+        image: '/images/categories/sahumerios.jpg',
         filter: 'sahumerios',
         description: 'Limpieza y elevación energética'
     },
     {
         id: 'jabones',
         name: 'Jabones Naturales',
-        image: 'https://images.unsplash.com/photo-1600857062241-98e5dba7f214?q=80&w=800&auto=format&fit=crop', // Soap Stack (Reliable)
+        image: '/images/categories/jabones.jpg',
         filter: 'jabones',
         description: 'Pureza botánica para tu piel'
     },
     {
         id: 'cremas',
         name: 'Cremas & Elixires',
-        image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?q=80&w=800&auto=format&fit=crop', // Amber Bottles/Cream (Reliable)
+        image: '/images/categories/cremas.jpg',
         filter: 'cremas',
         description: 'Nutrición profunda y consciente'
     }
@@ -111,6 +111,7 @@ const ProductGrid = () => {
                                         src={category.image}
                                         alt={category.name}
                                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                        onError={(e) => { const t = e.currentTarget; t.onerror = null; t.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23f3ebe1" width="800" height="600"/><text x="400" y="300" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="%23989979">🌿</text></svg>'; }}
                                     />
                                     <div className="absolute inset-x-0 bottom-0 p-8 z-20 text-center bg-gradient-to-t from-black/80 to-transparent">
                                         <Sparkles className="w-6 h-6 text-desert-accent mx-auto mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

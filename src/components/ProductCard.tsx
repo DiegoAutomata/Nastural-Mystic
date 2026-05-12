@@ -18,6 +18,11 @@ const ProductCard = ({ product }: { product: any }) => {
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                        const target = e.currentTarget;
+                        target.onerror = null;
+                        target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23f3ebe1" width="400" height="400"/><text x="200" y="200" text-anchor="middle" dominant-baseline="middle" font-size="60" fill="%23989979">🌿</text></svg>';
+                    }}
                 />
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <motion.button
