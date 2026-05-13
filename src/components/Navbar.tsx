@@ -35,7 +35,7 @@ const Navbar = () => {
                             className="w-12 h-12 object-contain"
                         />
                         <div className="flex flex-col">
-                            <span className={`font-cinzel text-lg font-bold tracking-widest uppercase transition-colors leading-none ${isScrolled ? 'text-black' : 'text-parchment group-hover:text-white'}`}>
+                            <span className={`font-cinzel text-lg font-bold tracking-widest uppercase transition-colors leading-none ${isScrolled ? 'text-black' : 'text-white group-hover:text-white'}`}>
                                 Natural
                             </span>
                             <span className={`font-montserrat text-[10px] tracking-[0.4em] uppercase transition-colors ${isScrolled ? 'text-black' : 'text-desert-accent group-hover:text-white'}`}>
@@ -47,10 +47,10 @@ const Navbar = () => {
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-8">
 
-                        <a href="/#historia" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}>Historia</a>
-                        <a href="/#ingredientes" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}>Ingredientes</a>
-                        <a href="/#productos" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}>Colección</a>
-                        <a href="/#contacto" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}>Contacto</a>
+                        <a href="/#historia" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-white hover:text-white'}`}>Historia</a>
+                        <a href="/#ingredientes" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-white hover:text-white'}`}>Ingredientes</a>
+                        <a href="/#productos" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-white hover:text-white'}`}>Colección</a>
+                        <a href="/#contacto" className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-white hover:text-white'}`}>Contacto</a>
 
                         {user ? (
                             <div className="flex items-center gap-6">
@@ -71,7 +71,7 @@ const Navbar = () => {
                                 ) : (
                                     <button
                                         onClick={handleLogout}
-                                        className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-red-600' : 'text-parchment hover:text-desert-accent'}`}
+                                        className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-medium ${isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-desert-accent'}`}
                                     >
                                         Salir
                                     </button>
@@ -80,7 +80,7 @@ const Navbar = () => {
                         ) : (
                             <Link
                                 to="/login"
-                                className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-bold border-b-2 border-desert-accent/50 pb-1 ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}
+                                className={`transition-colors font-montserrat text-sm tracking-widest uppercase font-bold border-b-2 border-desert-accent/50 pb-1 ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-white hover:text-white'}`}
                             >
                                 Entrar
                             </Link>
@@ -88,7 +88,7 @@ const Navbar = () => {
 
                         <button
                             onClick={openCart}
-                            className={`relative p-2 transition-colors ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}
+                            className={`relative p-2 transition-colors ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-white hover:text-white'}`}
                         >
                             <ShoppingCart size={24} />
                             {itemCount > 0 && (
@@ -101,7 +101,7 @@ const Navbar = () => {
 
                     {/* Mobile Toggle */}
                     <div className="md:hidden flex items-center gap-4">
-                        <button onClick={openCart} className={`relative p-2 ${isScrolled ? 'text-black' : 'text-parchment'}`}>
+                        <button onClick={openCart} className={`relative p-2 ${isScrolled ? 'text-black' : 'text-white'}`}>
                             <ShoppingCart size={24} />
                             {itemCount > 0 && (
                                 <span className="absolute -top-1 -right-1 bg-insta-pink text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
@@ -109,7 +109,7 @@ const Navbar = () => {
                                 </span>
                             )}
                         </button>
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`transition-colors ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}>
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`transition-colors ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-white hover:text-white'}`}>
                             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
