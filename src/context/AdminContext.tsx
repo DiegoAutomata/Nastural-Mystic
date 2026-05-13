@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, use, useState, useEffect } from 'react';
 import { getCurrentUser, logout as apiLogout } from '../services/auth.service';
 
 interface AdminContextType {
@@ -37,7 +37,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 };
 
 export const useAdmin = () => {
-    const context = useContext(AdminContext);
+    const context = use(AdminContext);
     if (context === undefined) {
         throw new Error('useAdmin must be used within an AdminProvider');
     }

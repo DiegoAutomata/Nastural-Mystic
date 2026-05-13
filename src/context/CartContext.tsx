@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, use, useState, useEffect, useCallback, type ReactNode } from 'react';
 
 interface CartItem {
     id: string;
@@ -90,7 +90,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export const useCart = () => {
-    const context = useContext(CartContext);
+    const context = use(CartContext);
     if (!context) throw new Error('useCart must be used within a CartProvider');
     return context;
 };
