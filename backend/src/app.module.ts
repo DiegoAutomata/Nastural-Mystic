@@ -17,6 +17,10 @@ import { OrdersModule } from './orders/orders.module';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get<string>('MONGODB_URI'),
+        serverSelectionTimeoutMS: 5000,
+        connectTimeoutMS: 5000,
+        retryAttempts: 999,
+        retryDelay: 3000,
       }),
       inject: [ConfigService],
     }),
