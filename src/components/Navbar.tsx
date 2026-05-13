@@ -126,10 +126,10 @@ const Navbar = () => {
                         className="md:hidden bg-desert-primary border-t border-desert-accent/10"
                     >
                         <div className="px-4 pt-4 pb-8 space-y-4">
-                            <a href="#historia" onClick={() => setIsMenuOpen(false)} className="block text-parchment hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Historia</a>
-                            <a href="#ingredientes" onClick={() => setIsMenuOpen(false)} className="block text-parchment hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Ingredientes</a>
-                            <a href="#productos" onClick={() => setIsMenuOpen(false)} className="block text-parchment hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Colección</a>
-                            <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block text-parchment hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Contacto</a>
+                             <a href="/#historia" onClick={() => setIsMenuOpen(false)} className="block text-white/80 hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Historia</a>
+                            <a href="/#ingredientes" onClick={() => setIsMenuOpen(false)} className="block text-white/80 hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Ingredientes</a>
+                            <a href="/#productos" onClick={() => setIsMenuOpen(false)} className="block text-white/80 hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Colección</a>
+                            <a href="/#contacto" onClick={() => setIsMenuOpen(false)} className="block text-white/80 hover:text-white font-montserrat uppercase tracking-widest text-sm py-2">Contacto</a>
 
                             <div className="pt-4 border-t border-white/10">
                                 {user ? (
@@ -140,7 +140,7 @@ const Navbar = () => {
                                                     <p className="text-[10px] text-desert-accent uppercase tracking-widest font-bold">Sesión activa:</p>
                                                     <p className="text-white text-sm font-montserrat truncate">{user.email}</p>
                                                 </div>
-                                                <a href="#admin" onClick={() => setIsMenuOpen(false)} className="block text-desert-accent hover:text-white font-cinzel uppercase tracking-widest text-sm py-2 font-bold mb-4">Admin Panel</a>
+                                                <Link to="/admin" onClick={() => setIsMenuOpen(false)} className="block text-desert-accent hover:text-white font-cinzel uppercase tracking-widest text-sm py-2 font-bold mb-4">Admin Panel</Link>
                                             </>
                                         )}
                                         <button
@@ -151,13 +151,13 @@ const Navbar = () => {
                                         </button>
                                     </>
                                 ) : (
-                                    <a
-                                        href="#admin"
+                                    <Link
+                                        to="/login"
                                         onClick={() => setIsMenuOpen(false)}
                                         className="block w-full text-center py-3 bg-desert-accent text-white font-cinzel uppercase tracking-widest text-sm font-bold shadow-lg"
                                     >
                                         Entrar / Registrarme
-                                    </a>
+                                    </Link>
                                 )}
                             </div>
                         </div>
