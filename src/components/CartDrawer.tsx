@@ -105,7 +105,7 @@ const CartDrawer = () => {
                             <div className="p-6 bg-desert-bg/10 border-t border-desert-accent/20 space-y-4">
                                 <div className="flex justify-between items-center">
                                     <span className="font-cinzel text-desert-primary uppercase tracking-widest text-sm font-bold">Total Compra</span>
-                                    <span className="font-cinzel text-absolute-black text-2xl font-bold">${typeof totalPrice === 'number' ? totalPrice.toFixed(2) : '0.00'}</span>
+                                    <span className="font-cinzel text-desert-primary text-2xl font-bold">${typeof totalPrice === 'number' ? totalPrice.toFixed(2) : '0.00'}</span>
                                 </div>
                                 <button
                                     onClick={() => {
