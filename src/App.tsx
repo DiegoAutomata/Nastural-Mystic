@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'sonner';
 import { CartProvider } from './context/CartContext'
@@ -39,11 +39,9 @@ const LoginRoute = () => {
 };
 
 function AppContent() {
-  const [isCartOpen, setIsCartOpen] = useState(false)
-
   return (
     <div className="min-h-screen bg-white">
-      <Navbar onOpenCart={() => setIsCartOpen(true)} />
+      <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -69,7 +67,7 @@ function AppContent() {
       </Routes>
 
       <Footer />
-      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <CartDrawer />
       <Toaster position="top-center" richColors />
     </div>
   )

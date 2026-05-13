@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import { useAdmin } from '../context/AdminContext';
 
-const Navbar = ({ onOpenCart }: { onOpenCart: () => void }) => {
-    const { itemCount } = useCart();
+const Navbar = () => {
+    const { itemCount, openCart } = useCart();
     const { user, isAdmin, logout } = useAdmin();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -87,7 +87,7 @@ const Navbar = ({ onOpenCart }: { onOpenCart: () => void }) => {
                         )}
 
                         <button
-                            onClick={onOpenCart}
+                            onClick={openCart}
                             className={`relative p-2 transition-colors ${isScrolled ? 'text-black hover:text-desert-primary' : 'text-parchment hover:text-white'}`}
                         >
                             <ShoppingCart size={24} />
@@ -101,7 +101,7 @@ const Navbar = ({ onOpenCart }: { onOpenCart: () => void }) => {
 
                     {/* Mobile Toggle */}
                     <div className="md:hidden flex items-center gap-4">
-                        <button onClick={onOpenCart} className={`relative p-2 ${isScrolled ? 'text-black' : 'text-parchment'}`}>
+                        <button onClick={openCart} className={`relative p-2 ${isScrolled ? 'text-black' : 'text-parchment'}`}>
                             <ShoppingCart size={24} />
                             {itemCount > 0 && (
                                 <span className="absolute -top-1 -right-1 bg-insta-pink text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">

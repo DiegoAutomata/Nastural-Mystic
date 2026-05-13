@@ -4,20 +4,20 @@ import { useCart } from '../context/CartContext';
 import { useAdmin } from '../context/AdminContext';
 import { X, ShoppingBag, Plus, Minus, Trash2, ArrowRight } from 'lucide-react';
 
-const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
+const CartDrawer = () => {
     const navigate = useNavigate();
     const { user } = useAdmin();
-    const { cart, removeFromCart, updateQuantity, totalPrice } = useCart();
+    const { cart, removeFromCart, updateQuantity, totalPrice, isCartOpen, closeCart } = useCart();
 
     return (
         <AnimatePresence>
-            {isOpen && (
+            {isCartOpen && (
                 <>
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={onClose}
+                        onClick={closeCart}
                         className="fixed inset-0 bg-black/75 z-[100]"
                     />
                     <motion.div
@@ -33,7 +33,7 @@ const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void 
                                 <h2 className="font-cinzel text-2xl tracking-widest font-bold">Tu Kit de Alquimia</h2>
                             </div>
                             <button
-                                onClick={onClose}
+                                onClick={closeCart}
                                 className="p-2 hover:bg-white/10 rounded-full transition-colors"
                             >
                                 <X size={24} />
@@ -76,14 +76,14 @@ const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void 
                                         <div className="flex items-center gap-3">
                                             <div className="flex items-center border border-desert-accent/30 rounded-sm">
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, Math.max(0, item.quantity - 1))}
+                                                    onClick={() => updateQuantity(item.id, -1)}
                                                     className="p-1 hover:text-desert-accent transition-colors"
                                                 >
                                                     <Minus size={14} />
                                                 </button>
                                                 <span className="w-8 text-center font-montserrat text-sm font-bold text-desert-primary">{item.quantity}</span>
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                    onClick={() => updateQuantity(item.id, 1)}
                                                     className="p-1 hover:text-desert-accent transition-colors"
                                                 >
                                                     <Plus size={14} />
@@ -111,10 +111,10 @@ const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void 
                                     onClick={() => {
                                         if (user) {
                                             navigate('/checkout');
-                                            onClose();
+                                            closeCart();
                                         } else {
                                             navigate('/login');
-                                            onClose();
+                                            closeCart();
                                         }
                                     }}
                                     className="w-full bg-desert-primary text-parchment py-4 font-cinzel tracking-[0.2em] transform active:scale-[0.98] transition-all hover:bg-desert-primary/90 flex items-center justify-center gap-2 border border-desert-accent/30 shadow-lg uppercase"

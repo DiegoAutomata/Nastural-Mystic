@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 
 interface CartItem {
     id: string;
@@ -17,6 +17,9 @@ interface CartContextType {
     clearCart: () => void;
     totalPrice: number;
     itemCount: number;
+    isCartOpen: boolean;
+    openCart: () => void;
+    closeCart: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -32,11 +35,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }
     });
 
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
     useEffect(() => {
         localStorage.setItem('natural-mystic-cart', JSON.stringify(cart));
     }, [cart]);
 
-    const addToCart = (product: any) => {
+    const openCart = useCallback(() => setIsCartOpen(true), []);
+    const closeCart = useCallback(() => setIsCartOpen(false), []);
+
+    const addToCart = useCallback((product: any) => {
         if (!product) return;
         const productId = product._id || product.id;
         if (!productId) return;
@@ -50,7 +58,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             }
             return [...prev, { ...product, id: productId, quantity: 1 }];
         });
-    };
+        setIsCartOpen(true);
+    }, []);
 
     const removeFromCart = (id: string) => {
         setCart(prev => prev.filter(item => item.id !== id));
@@ -74,7 +83,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, totalPrice, itemCount }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, totalPrice, itemCount, isCartOpen, openCart, closeCart }}>
             {children}
         </CartContext.Provider>
     );
