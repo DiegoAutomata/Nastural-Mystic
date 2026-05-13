@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: natural-mystic-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    plan: free
+    envVars:
+      - key: PORT
+        value: "3000"
+      - key: MONGODB_URI
+        sync: false
