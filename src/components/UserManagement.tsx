@@ -22,7 +22,7 @@ const UserManagement: React.FC<UserManagementProps> = ({ token }) => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.get('${import.meta.env.VITE_API_URL || ''}/auth/users', {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL || ''}/auth/users`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setUsers(response.data);
