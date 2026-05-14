@@ -1,0 +1,89 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@nestjs/core");
+const app_module_1 = require("./app.module");
+const products_service_1 = require("./products/products.service");
+async function bootstrap() {
+    const app = await core_1.NestFactory.createApplicationContext(app_module_1.AppModule);
+    const productsService = app.get(products_service_1.ProductsService);
+    const mysticProducts = [
+        {
+            name: 'Vela de Soja "Luna Nueva"',
+            description: 'Vela alquímica de cera de soja pura con aceite esencial de lavanda orgánica y cristales de amatista. Ideal para meditación y calma.',
+            price: 22.00,
+            category: 'Velas',
+            image: '/images/products/vela-luna-nueva.jpg',
+            stock: 30,
+        },
+        {
+            name: 'Vela de Soja "Bosque Encantado"',
+            description: 'Aroma profundo a pino, musgo y tierra húmeda. Cera de soja 100% natural libre de parafinas.',
+            price: 24.00,
+            category: 'Velas',
+            image: '/images/products/vela-bosque-encantado.jpg',
+            stock: 25,
+        },
+        {
+            name: 'Sahumerio de Palo Santo',
+            description: 'Madera sagrada recolectada sustentablemente en Perú. Limpia la energía densa y eleva la vibración del hogar.',
+            price: 12.00,
+            category: 'Sahumerios',
+            image: '/images/products/sahumerio-palo-santo.jpg',
+            stock: 100,
+        },
+        {
+            name: 'Atado de Salvia Blanca',
+            description: 'Sahumo ancestral de salvia blanca californiana. Purificación profunda de espacios y aura.',
+            price: 18.00,
+            category: 'Sahumerios',
+            image: '/images/products/salvia-blanca.jpg',
+            stock: 50,
+        },
+        {
+            name: 'Jabón Natural de Avena & Miel',
+            description: 'Jabón saponificado en frío con leche de avena y miel orgánica. Suavidad extrema para pieles sensibles.',
+            price: 10.50,
+            category: 'Jabones',
+            image: '/images/products/jabon-avena.jpg',
+            stock: 40,
+        },
+        {
+            name: 'Jabón de Rosas Silvestres',
+            description: 'Hecho con aceite de rosa mosqueta y pétalos reales. Propiedades regeneradoras y aroma embriagador.',
+            price: 12.00,
+            category: 'Jabones',
+            image: '/images/products/jabon-rosas.jpg',
+            stock: 35,
+        },
+        {
+            name: 'Crema Nutritiva "Diosa Solar"',
+            description: 'Crema facial rica en caléndula y manteca de karité. Hidratación profunda y brillo natural.',
+            price: 28.00,
+            category: 'Cremas',
+            image: '/images/products/crema-diosa-solar.jpg',
+            stock: 20,
+        },
+        {
+            name: 'Serum Facial "Elixir Nocturno"',
+            description: 'Concentrado de aceites botánicos con bakuchiol y lavanda. Reparación intensiva mientras duermes.',
+            price: 35.00,
+            category: 'Cremas',
+            image: '/images/products/serum-elixir.jpg',
+            stock: 15,
+        },
+    ];
+    console.log('🌱 Seeding database with AUTHENTIC MYSTIC NATURAL products...');
+    for (const product of mysticProducts) {
+        try {
+            await productsService.create(product);
+            console.log(`✨ Created: ${product.name}`);
+        }
+        catch (e) {
+            console.log(`⚠️ Note: ${product.name} might already exist or error: ${e.message}`);
+        }
+    }
+    console.log('✅ Seeding complete!');
+    await app.close();
+}
+bootstrap();
+//# sourceMappingURL=seed.js.map

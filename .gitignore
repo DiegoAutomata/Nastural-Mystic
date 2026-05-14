@@ -8,13 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+/dist
 dist-ssr
 *.local
 
 # Backend
 backend/node_modules
-backend/dist
+.vercel
 .env
 backend/.env
 

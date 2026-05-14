@@ -3,7 +3,7 @@ services:
     name: natural-mystic-api
     runtime: node
     rootDir: backend
-    buildCommand: npm install && npx tsc -p tsconfig.build.json --noEmit false 2>/dev/null; npx nest build --no-type-check 2>/dev/null || npm run build
+    buildCommand: npm install
     startCommand: node dist/main.js
     plan: free
     envVars:
