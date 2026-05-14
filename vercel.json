@@ -4,8 +4,8 @@
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
-  "env": {
-    "MONGODB_URI": "mongodb+srv://Natural-Mystic:Tatamelcho10@cluster0.utkh1aw.mongodb.net/natural-mystic",
-    "JWT_SECRET": "natural-mystic-jwt-2026-secure-key"
-  }
+  "buildCommand": "vite build",
+  "installCommand": "npm install",
+  "outputDirectory": "dist",
+  "framework": "vite"
 }
