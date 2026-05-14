@@ -4,11 +4,11 @@ services:
     runtime: node
     rootDir: backend
     buildCommand: npm install && npm run build
-    startCommand: npm run start:prod
+    startCommand: node dist/main.js
     plan: free
     envVars:
       - key: PORT
         value: "3000"
       - key: MONGODB_URI
         sync: false
-        value: "mongodb://localhost:27017/natural-mystic"
+        value: "mongodb+srv://Natural-Mystic:Tatamelcho10@cluster0.utkh1aw.mongodb.net/natural-mystic"
