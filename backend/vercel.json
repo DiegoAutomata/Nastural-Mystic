@@ -1,14 +1,13 @@
 {
   "functions": {
     "api/index.js": {
-      "includeFiles": "dist/**",
-      "maxDuration": 30
+      "includeFiles": "dist/**,node_modules/@nestjs/**,node_modules/mongoose/**,node_modules/helmet/**,node_modules/rxjs/**,node_modules/reflect-metadata/**",
+      "maxDuration": 60
     }
   },
   "rewrites": [
     { "source": "/(.*)", "destination": "/api/index" }
   ],
-  "env": {
-    "MONGODB_URI": "mongodb+srv://Natural-Mystic:Tatamelcho10@cluster0.utkh1aw.mongodb.net/natural-mystic"
-  }
+  "buildCommand": "",
+  "installCommand": "npm install"
 }

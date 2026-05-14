@@ -1,3 +1,5 @@
+require('reflect-metadata');
+
 const { NestFactory } = require('@nestjs/core');
 const { AppModule } = require('../dist/app.module');
 const { ValidationPipe } = require('@nestjs/common');
@@ -7,14 +9,10 @@ let cachedApp;
 
 async function getApp() {
   if (!cachedApp) {
-    const app = await NestFactory.create(AppModule);
+    const app = await NestFactory.create(AppModule, { logger: ['error'] });
     app.use(helmet());
     app.enableCors();
-    app.useGlobalPipes(new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      transform: true,
-    }));
+    app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
     await app.init();
     cachedApp = app;
   }
@@ -22,6 +20,14 @@ async function getApp() {
 }
 
 module.exports = async (req, res) => {
-  const app = await getApp();
-  app.getHttpAdapter().getInstance()(req, res);
+  try {
+    const app = await getApp();
+    // Prevent NestJS from listening on a port - use the Vercel request/response
+    const instance = app.getHttpAdapter().getInstance();
+    instance(req, res);
+  } catch (err) {
+    res.statusCode = 500;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ error: err.message }));
+  }
 };
