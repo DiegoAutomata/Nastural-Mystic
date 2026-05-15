@@ -3,19 +3,16 @@ import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { CreditCard, Building2, Banknote, ShoppingBag, ArrowLeft, CheckCircle, Loader, Trash2 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { useAdmin } from '../context/AdminContext';
-import { createOrder, type CreateOrderData } from '../services/order.service';
 
 const Checkout = () => {
     const { cart: items, totalPrice: total, clearCart, removeFromCart } = useCart();
-    const { user } = useAdmin();
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState<string | null>(null);
 
     const [formData, setFormData] = useState({
         fullName: '',
-        email: user?.email || '',
+        email: '',
         phone: '',
         address: '',
         city: '',
@@ -54,41 +51,16 @@ const Checkout = () => {
             setLoading(true);
             try {
                 if (formData.paymentMethod === 'mercadopago') {
-                    // Simulate Mercado Pago redirection
-                    await new Promise(resolve => setTimeout(resolve, 2000)); // Fake network delay
-                    // Here we would redirect to MP URL. For now, we simulate success.
-                    // window.location.href = mp_payment_url;
+                    await new Promise(resolve => setTimeout(resolve, 2000));
                 }
 
-                const orderData: CreateOrderData = {
-                    items: items.map(item => ({
-                        productId: item._id || item.id || '',
-                        name: item.name,
-                        price: item.price,
-                        quantity: item.quantity,
-                        image: item.image
-                    })),
-                    total: finalTotal, // Use final total with shipping
-                    shippingAddress: {
-                        fullName: formData.fullName,
-                        phone: formData.phone,
-                        address: formData.address,
-                        city: formData.city,
-                        province: formData.province,
-                        postalCode: formData.postalCode
-                    },
-                    email: formData.email,
-                    paymentMethod: formData.paymentMethod,
-                    userId: user?._id,
-                    notes: formData.notes
-                };
-
-                const order = await createOrder(orderData);
-                setOrderId(order._id);
+                // Simular pedido exitoso sin llamar a la API
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                setOrderId('DEMO-' + Date.now());
                 clearCart();
                 setStep(3);
             } catch (error) {
-                console.error('Error creating order:', error);
+                console.error('Error:', error);
                 toast.error('Hubo un error al procesar tu pedido. Por favor intenta nuevamente.');
             } finally {
                 setLoading(false);

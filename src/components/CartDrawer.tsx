@@ -109,13 +109,8 @@ const CartDrawer = () => {
                                 </div>
                                 <button
                                     onClick={() => {
-                                        if (user) {
-                                            navigate('/checkout');
-                                            closeCart();
-                                        } else {
-                                            navigate('/login');
-                                            closeCart();
-                                        }
+                                        navigate('/checkout');
+                                        closeCart();
                                     }}
                                     className="w-full bg-desert-primary text-parchment py-4 font-cinzel tracking-[0.2em] transform active:scale-[0.98] transition-all hover:bg-desert-primary/90 flex items-center justify-center gap-2 border border-desert-accent/30 shadow-lg uppercase"
                                 >

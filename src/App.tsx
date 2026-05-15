@@ -45,14 +45,7 @@ function AppContent() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/checkout"
-          element={
-            <ProtectedCheckoutRoute>
-              <Checkout />
-            </ProtectedCheckoutRoute>
-          }
-        />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<LoginRoute />} />
         <Route
           path="/admin"
