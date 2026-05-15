@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Natural Mystic
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cosmética natural y artesanal — e-commerce de productos de bienestar espiritual hechos a mano.
 
-Currently, two official plugins are available:
+**URL de producción**: [natural-mystic-omega.vercel.app](https://natural-mystic-omega.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Stack tecnológico
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Capa | Tecnología |
+|---|---|
+| Frontend | React 19, TypeScript, Vite 7, Tailwind CSS 4 |
+| Animaciones | Framer Motion |
+| Backend API | Vercel Serverless Functions (Node.js) |
+| Base de datos | MongoDB Atlas (gratis) |
+| Autenticación | JWT + bcrypt |
+| Despliegue | Vercel |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Estructura del proyecto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── api/                    # API serverless (Vercel Functions)
+│   ├── _db.js              # Conexión MongoDB
+│   ├── health.js           # Health check
+│   ├── products.js         # GET productos
+│   ├── products/[id].js    # GET producto por ID
+│   ├── seed.js             # Seed de productos
+│   └── auth/
+│       ├── login.js        # POST login
+│       └── register.js     # POST registro
+├── backend/                # NestJS original (local dev)
+├── src/                    # Frontend React
+│   ├── components/         # Componentes UI
+│   ├── context/            # Contextos (Cart, Admin)
+│   ├── pages/              # Páginas (Home)
+│   ├── services/           # Servicios API
+│   └── assets/             # Recursos estáticos
+├── public/images/          # Imágenes del sitio
+└── vercel.json             # Config de Vercel
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Funcionalidades
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Catálogo de productos**: 8 productos en 4 categorías (Velas, Sahumerios, Jabones, Cremas)
+- **Carrito de compras**: Añadir, quitar, modificar cantidades, persistencia en localStorage
+- **Checkout simulado**: Formulario de envío, selección de método de pago, formulario de tarjeta (falso, sin procesar pagos reales)
+- **Autenticación**: Registro y login con JWT
+- **Panel de administración**: Gestión de productos y usuarios
+- **Responsive**: Adaptado a mobile, tablet y desktop
+- **Modo oscuro/claro**: Navbar y footer con transiciones
+
+---
+
+## Variables de entorno (Vercel)
+
+| Variable | Descripción |
+|---|---|
+| `MONGODB_URI` | String de conexión a MongoDB Atlas |
+| `VITE_API_URL` | URL de la API (vacío = mismo dominio) |
+| `JWT_SECRET` | Clave secreta para tokens JWT |
+
+---
+
+## Desarrollo local
+
+```bash
+# Instalar dependencias
+pnpm install
+
+# Iniciar frontend
+pnpm run dev
+
+# Iniciar backend NestJS (opcional)
+cd backend && pnpm run start:dev
 ```
+
+---
+
+## Notas
+
+- El checkout es una simulación visual. No se conecta a ninguna pasarela de pago real.
+- Las imágenes de productos fueron generadas con Fal.ai Flux.
+- La API serverless reemplazó al backend NestJS en producción para reducir costos y complejidad.
