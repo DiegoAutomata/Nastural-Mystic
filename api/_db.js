@@ -4,19 +4,26 @@ const URI = process.env.MONGODB_URI || '';
 const DB_NAME = 'natural-mystic';
 
 let client;
-let db;
 
 async function connect() {
-  if (db) return db;
-  if (!client) {
-    client = new MongoClient(URI, {
-      serverSelectionTimeoutMS: 5000,
-      connectTimeoutMS: 5000,
-    });
-    await client.connect();
+  if (client) {
+    try {
+      // Check if connection is still alive
+      await client.db(DB_NAME).command({ ping: 1 });
+      return client.db(DB_NAME);
+    } catch {
+      // Connection dead, reconnect
+      await client.close(true).catch(() => {});
+      client = null;
+    }
   }
-  db = client.db(DB_NAME);
-  return db;
+  
+  client = new MongoClient(URI, {
+    serverSelectionTimeoutMS: 10000,
+    connectTimeoutMS: 10000,
+  });
+  await client.connect();
+  return client.db(DB_NAME);
 }
 
 module.exports = { connect };
