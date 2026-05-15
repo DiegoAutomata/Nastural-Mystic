@@ -87,3 +87,4 @@ cd backend && pnpm run start:dev
 - Las imágenes de productos fueron generadas con Fal.ai Flux.
 - La API serverless reemplazó al backend NestJS en producción para reducir costos y complejidad.
 - 
+
