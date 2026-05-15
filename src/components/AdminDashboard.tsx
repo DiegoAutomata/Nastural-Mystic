@@ -112,7 +112,7 @@ const AdminDashboard = () => {
     return (
         <div className="min-h-screen bg-white">
             {/* Header del CMS */}
-            <div className="bg-desert-primary text-white p-6 shadow-lg flex justify-between items-center sticky top-0 z-40">
+            <div className="bg-desert-primary text-white p-6 shadow-lg flex justify-between items-center sticky top-20 z-40">
                 <div className="flex items-center gap-4">
                     <div className="bg-white/10 p-2 rounded-full">
                         <Package size={24} className="text-desert-accent" />
