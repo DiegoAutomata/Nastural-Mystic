@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const URI = process.env.MONGODB_URI || 'mongodb+srv://Natural-Mystic:Tatamelcho10@cluster0.utkh1aw.mongodb.net/natural-mystic';
+const URI = process.env.MONGODB_URI || '';
 const DB_NAME = 'natural-mystic';
 
 let client;
