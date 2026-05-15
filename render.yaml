@@ -11,4 +11,4 @@ services:
         value: "3000"
       - key: MONGODB_URI
         sync: false
-        value: "mongodb+srv://Natural-Mystic:Tatamelcho10@cluster0.utkh1aw.mongodb.net/natural-mystic"
+        value: ""
